@@ -19,7 +19,10 @@ const app = express();
 
 
 
-mongoose.connect("mongodb://localhost/Entertainment", {useNewUrlParser: true}); 
+// mongoose.connect("mongodb://localhost/Entertainment", {useNewUrlParser: true}); 
+mongoose.connect("mongodb+srv://RaviTeja6820:tanishka6113@cluster0-cpgrj.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true}); 
+
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
