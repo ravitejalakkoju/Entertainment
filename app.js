@@ -7,7 +7,6 @@ const flash = require("connect-flash");
 const methodOverride = require("method-override");
 const User = require("./models/user");
 const Thread = require("./models/thread");
-const seedDB = require("./seeds.js");
 const movieSearch = require("./public/Scripts/searchMovie.js");
 const gameSearch = require("./public/Scripts/gameSearch.js");
 const anime_mangaSearch = require("./public/Scripts/anime_mangaSearch.js");
@@ -29,7 +28,6 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 app.use(flash());
-seedDB();
 
 app.use(require("express-session")({
     secret: "This is the best website ever",
