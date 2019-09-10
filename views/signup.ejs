@@ -1,0 +1,27 @@
+<%= include ./partials/header %>
+
+<form class="container col-12 col-md-5" action="/signup" method="POST">
+  <div class="form-group">
+    <label for="username" style="color: white;">UserID</label>
+    <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter UserID">
+    <small id="emailHelp" class="form-text text-muted" style="color: rgb(255, 255, 255);">We'll never share your userID with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="password" style="color: white;">Password</label>
+    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+    <small id="emailHelp" class="form-text text-muted" style="color: rgb(255, 255, 255);">Choose a Secured Password.</small>
+  </div>
+  <div class="form-group">
+    <label for="quote" style="color: white;">Quote</label>
+    <input type="text" name="quote" class="form-control" id="quote" aria-describedby="emailHelp" placeholder="Enter Quote">
+  </div>
+  <div class="form-group">
+    <label for="displayPicture" style="color: white;">DisplayPicture</label>
+    <input type="text" name="displayPicture" class="form-control" id="displayPicture" aria-describedby="emailHelp" placeholder="Enter DisplayPicture" value="https://www.pngfind.com/pngs/m/110-1102775_download-empty-profile-hd-png-download.png">
+    <small id="emailHelp" class="form-text text-muted" style="color: rgb(255, 255, 255);">HD Pictures are prefferred for better clarity</small>
+  </div>
+  <button type="submit" class="btn" style="background-color: rgb(184, 0, 0); color: white;">Submit</button>
+</form>
+<div style="height: 80px;"></div>
+
+<%= include ./partials/footer %>

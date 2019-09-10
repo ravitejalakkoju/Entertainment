@@ -1,0 +1,130 @@
+body{   
+    background-color: rgb(21, 35, 44);
+}
+
+#body{
+    background-image: linear-gradient(rgba(21, 35, 44, 0.95), rgba(21, 35, 44, 0.95));
+    background-size: cover, contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    padding: 0;
+}
+
+#nav-pic {
+    background-image: url("../background.jpg");
+    /* background-image: url("../coverpage3.png"); */
+    /* background-image: url("../logo13.png"); */
+
+    height: 30vh;    
+    /* background-color: rgb(57, 0, 110); */
+    background-color: rgb(96, 173, 218);
+    /* background-color: grey; */
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    position: relative;
+    background-size: auto 40vh;
+    background-attachment: fixed;
+    background-position: top;
+    /* background-size: auto 30vh; */
+}
+
+
+footer {
+    background-color: black;
+    height: 10vh;
+}
+
+footer h6 {
+    color: #aaa;
+    font-weight: 800;
+    font-family: cursive;
+    font-style: italic;
+    margin: 15px 5px;
+    font-size: 1rem;
+}
+
+.list-group a{
+    color: white;
+}
+
+.maxheight {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.likeview {
+    margin-top: 3rem;
+    border-top: 2px solid rgb(173, 173, 173);
+    padding-top: 2rem;
+}
+
+label {
+    color: white;
+}
+
+ul.scrollmenu {
+  overflow-x: scroll;
+  height: 50%;
+  white-space: nowrap;
+  list-style: none;
+}
+
+ul.scrollmenu li {
+  /* float: left; */
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+ul.verticalScroll {
+  height: 50%;
+  white-space: nowrap;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul.verticalScroll li {
+  float: left;
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+.textOverflow {
+    white-space: nowrap; 
+    width: 8rem; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    border: 1px solid #000000;
+}
+
+.post-box {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(146, 146, 146, 0.301);
+}
+
+.post-box2 {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(75, 75, 75, 0.349);
+}
+
+.outline{ 
+    border-radius: 10px;
+}
+
+.user-post {
+    max-height: 14rem;
+    overflow-y: scroll;
+}
+
+.indexDisplay {
+    display: inline;
+}
+
+
+
+

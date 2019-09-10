@@ -1,0 +1,152 @@
+<%= include ../partials/header %>
+
+<div class="container col-6 my-2">
+  <form method="GET" action="/dashboard/posts/createPost">
+  <button class="btn btn-light btn-block">Create Post</button> 
+  </form>
+</div>
+
+<div class="row mx-sm-1">
+  <div class="col-sm-2 mx-1">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a style="color: white; border-bottom: 1px solid rgb(100, 100, 100);" class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+      
+      <a style="color: white; border-bottom: 1px solid rgb(100, 100, 100);" class="nav-link" id="v-pills-find-tab" data-toggle="pill" href="#v-pills-find" role="tab" aria-controls="v-pills-find" aria-selected="false">Find</a>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="tab-content" id="v-pills-tabContent" style="color: white;" >
+      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+        <% if(posts.length === 0) { %>
+          <div class="m-auto">No Posts Yet  </div>
+        <%} %>
+        <% let tog = 1; %>
+        <% posts.forEach( (el) => {  %>
+         <% if(tog % 2 !== 0) { tog = tog + 1; %>
+          <div class="outline post-box p-1 m-3 row"> 
+          <% } else { tog = tog + 1; %>
+            <div class="outline post-box2 p-1 m-3 row">
+          <% } %>
+          <div class="col-2 ">
+            <img src="<%= el.author.displayPicture %>" class="img-fluid">
+          </div>
+            <div class="col-10 float-right" style="color: rgb(255, 255, 255);">
+              <div class="user-post" style="color: rgb(255, 255, 255);">
+                <%= el.thread %>
+              </div>
+              <div style="color: rgb(255, 255, 255);">
+                - posted by <span style="color: yellow;"><p class="font-weight-bold font-italic d-inline"><%= el.author.username %></p></span> 
+                on <a href="<%= el.postOn.url %>" target="_blank"><span style="color: rgb(255, 0, 0);"><p class="font-weight-bold font-italic d-inline"><%= el.postOn.name %></p></span> </a>
+              </div>
+            </div>
+          </div>
+        <% } ); %>
+
+      </div>
+      
+      <div class="tab-pane fade" id="v-pills-find" role="tabpanel" aria-labelledby="v-pills-find-tab">
+        <form class="needs-validation container" action="/dashboard/posts/find" method="POST" novalidate>
+            <div class="form-row">
+                <div class="mb-3 mt-1 col-sm-8 mx-auto">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="validationCustomUsername" placeholder="search" aria-describedby="inputGroupPrepend" required>
+                    <button type="submit" class="btn btn-sm btn-dark col-12 col-sm-1 ml-sm-2 mt-sm-0 mt-2" style="color: white; border-radius: 1rem; font-size: 1.5rem;"><i class="fas fa-search"></i></button>
+                    <div class="invalid-feedback">
+                    Please choose the TAG you want to FIND.
+                    </div>
+                </div>
+                </div>
+            </div>
+        </form>
+        <div>
+          <h5>Users</h5>
+          <% if(users) { %>
+            <ul class="list-group list-group-flush">
+                <% users.forEach( (user) => { %>
+                  <div class="dropdown">
+                    <button class="list-group-item bg-transparent mb-1 col-12" style="color: white; border-bottom: 1px solid rgb(160, 160, 160);"><%= user.username %><i class="fas fa-info-circle m-1"></i></button>
+                    <div class="dropdown-content col-10" style="background-color: #00000098;">
+                      <div class="row">
+                          <div class="col-md-3" style="color: white;">    
+                              <div class="card" style="background-color: black;">
+                                      <img src="<%= user.displayPicture %>" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                          <h6 class="card-title"><%= user.username %></h6>
+                                          <p class="card-text"><%= user.quote %></p>
+                                      </div>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="row">
+                                  <div class="col-md-5 float-left">
+                                      <div class="tab-content" id="nav-tabContent">
+                                       <% user.likes.forEach((el) => { %>
+                                          <div class="tab-pane fade show" id="list-<%= el.id %>" role="tabpanel" aria-labelledby="list-<%= el.id%>-list" style="color: white;">
+                                              <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                                              <img src="<%= el.image %>" alt="Poster" class="img-fluid" style="border-radius: 5px;" sty>
+                                              <div class="caption-full m-1">
+                                                  
+                                                  <h4 style="color: white;"><%= el.name %></h4>
+                                                  <h5><a href="<%= el.url %>" target="_blank" style="color: rgb(231, 231, 3);"><img src="/imdb.jpg" alt="IMDb" class="img-fluid" style="border-radius: 10px; min-width: 30px; max-width: 50px;"></a></h5>
+                                              </div>
+                                              </div>
+                                          </div>
+                                       <% }) %>
+                                      </div>
+                              </div>
+                              <div class="col-md-7 float-right pt-2 pt-md-0 maxheight">
+                                  <div class="list-group" id="list-tab" role="tablist">
+                                      <% user.likes.forEach((el) => { %>                    
+                                      <a class="list-group-item bg-dark list-group-item-action" id="list-<%= el.id %>-list" data-toggle="list" href="#list-<%= el.id %>" role="tab" aria-controls="home"><%= el.name%><span class="badge badge-primary badge-pill float-right">TotalLikes</span></a>
+                                      <% }); %>
+                                  </div>
+                              </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                <% }) %>
+                
+            </ul>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 12px 16px;
+      z-index: 1;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    </style>
+    
+    
+
+<div class="row my-5">
+    <ul style="list-style: none;">
+    <li><h5 style="color: white;">My Other Projects :</h5></li>
+    <li><a href="https://movietracker2.herokuapp.com/signedin" target="_blank"><img src="/Ad1.png" class="img-fluid" style="max-height: 90px;"> </a></li>
+    </ul>
+</div>
+<%= include ../partials/footer %>

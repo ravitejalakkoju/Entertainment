@@ -1,0 +1,338 @@
+<%= include ../partials/header %>
+
+<div class="container">
+    <form method="GET" action="/dashboard/posts">
+        <button class="btn btn-dark btn-block mx-2 font-weight-bold">UserThreads</button>
+    </form>
+</div>
+
+<div class="container">
+    <form class="needs-validation" action="/dashboard" method="POST" novalidate>
+    <div class="form-row">
+        <div class="col-md-11 mb-3">
+        <label for="validationCustomUsername" style="font-size: 1.5rem;">Search</label>
+        <div class="input-group">
+            <input type="text" name="searchof[name]" class="form-control" id="validationCustomUsername" placeholder="search" aria-describedby="inputGroupPrepend" required>
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend"><i class="fas fa-search"></i></span>
+            </div>
+            <div class="invalid-feedback">
+            Please choose movie, actor, comic etc.
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="form-inline">
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Filters : </label>
+        <select name="searchof[type]" class="my-1 mr-sm-2 form-control form-control-sm" style="background-color: rgb(255, 225, 191); color: black;" id="inlineFormCustomSelectPref" required>
+            <option value="movie" selected>Movie</option>
+            <option value="series">TV-Series</option>
+            <option value="comics">Comics</option>
+            <option value="manga">Manga</option>
+            <option value="anime">Anime</option>
+            <option value="games">VideoGames</option>
+            <!-- <option value="actor">Actor/Actress</option> -->
+            <option value="superhero">SuperHero</option>
+            <option value="mangaChar">MangaCharacter</option>
+        </select>
+        
+
+        <!-- <select name="searchof[rating]" class="my-1 mr-sm-2 form-control form-control-sm" id="inlineFormCustomSelectPref">
+            <option value="0" selected>Rating</option>
+            <% for(let i=1; i <= 10; i++) { %>
+            <option value="<%= i %>"><%= i %></option>
+            <% } %>
+        </select> -->
+
+        <select name="searchof[year]" class="my-1 mr-sm-2 form-control form-control-sm" id="inlineFormCustomSelectPref">
+            <option value="0" selected>Year</option>
+            <% for(let i=2020; i >= 1800; i--) { %>
+            <option value="<%= i %>"><%= i %></option>
+            <% } %>
+        </select>
+        <button type="submit" class="btn my-1 bg-dark col-12 col-sm-1 btn-sm" style="color: white; border-radius: 1rem; font-size: 1.5rem;"><i class="fas fa-search"></i></button>
+    </div>
+    <p style="font-size: 0.9rem ; color: rgba(248, 0, 0, 0.829);">
+        Year only works for Movies and TV-Series search.
+    </p>
+    </form>
+</div>
+
+    <div class="row container m-auto" style="display: flex; flex-wrap: wrap;">
+        <ul class="verticalScroll p-0">
+                
+                <% if(list.length === 0) { %>
+                    <div style="color: white;"> No Results</div>
+                <% } %>
+            <% if(list) { %>
+                
+            <% list.forEach( (el) => { %>
+
+
+                    <% if(type==='movie' || type === 'series') { %>
+                        
+                    <% if(el.Year > year){ %>
+
+                    <li class="col-6 col-lg-2 col-md-3 col-sm-4 py-2 px-1">
+                            <div class="tab-content" id="nav-tabContent">
+                                <!--  likes.forEach((el) => { %> -->
+                                <div class="tab-pane fade show active" id="list-<%= el.Title %>" role="tabpanel" aria-labelledby="list-<%= el.Title %>-list" style="color: white;">
+                                    <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                                        <% if(el.Poster === 'N/A'){ %>
+                                           -- No Poster -
+                                        <% } else { %>
+                                        <img src="<%= el.Poster %>" alt="MoviePoster" class="img-fluid" style="border-radius: 5px;" sty>
+                                        <% } %>
+                                    <div class="caption-full m-1">
+                                        <form action="/dashboard?_method=PUT" method="POST" class="d-inline float-right mt-1">
+                                        <input type="text" name="like[image_url]" class="form-control d-none" id="image_url<%= el.imdbID %>" value="<%= el.Poster %>"> 
+                                        <input type="text" name="like[url]" class="form-control d-none" id="url<%= el.imdbID %>" value="https://www.imdb.com/title/<%= el.imdbID %>/"> 
+                                        <input type="text" name="like[name]" class="form-control d-none" id="moviename<%= el.imdbID %>" value="<%= el.Title %>">
+                                        <input type="text" name="like[id]" class="form-control d-none" id="<%= el.imdbID %>" value="<%= el.imdbID %>">
+                                        <button class="btn btn-primary btn-sm"><i class="far fa-thumbs-up"></i></button>
+                                        </form>
+                                        <h6 class="textOverflow" style="color: white;"><%= el.Title %></h6>
+                                        <h5><a href="https://www.imdb.com/title/<%= el.imdbID %>/" target="_blank" style="float: left; color: rgb(231, 231, 3);"><img src="/imdb.jpg" alt="IMDb" class="img-fluid" style="border-radius: 10px; min-width: 20px; max-width: 35px;"></a></h5>
+                                        <form action="/dashboard/posts/createPost" method="POST">
+                                        <input type="text" name="post[url]" class="form-control d-none" id="url<%= el.imdbID %>" value="https://www.imdb.com/title/<%= el.imdbID %>"> 
+                                        <input type="text" name="post[name]" class="form-control d-none" id="<%= el.imdbID %>" value="<%= el.Title %>"> 
+                                        <input type="text" name="post[type]" class="form-control d-none" id="type<%= el.imdbID %>" value="<%= type %>"> 
+                                        <button type="submit" class="btn btn-outline-light btn-sm mx-2">Post</button>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!--  }) %> -->
+                            </div>
+                        </li>
+
+                    <% }  %>
+                    <% } else if (type === 'games') { %>
+                        <% let check = false; %>
+                        <% if(el.release_dates) { %>
+
+                        <% el.release_dates.forEach( (el) => { %>
+                        <%    if(el.y > year){ %>
+                        <%        check = true; %>
+                        <%    } %>
+                        <% } ) %>
+
+                        <% } %>
+
+                        <% if(check){ %>
+                        <li class="col-6 col-lg-2 col-md-3 col-sm-4 py-2 px-1">
+                                <div class="tab-content" id="nav-tabContent">
+                                    <!--  likes.forEach((el) => { %> -->
+                                    <div class="tab-pane fade show active" id="list-<%= el.name %>" role="tabpanel" aria-labelledby="list-<%= el.name %>-list" style="color: white;">
+                                        <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                                            <% if(el.cover) { %>
+                                                <% if(el.cover.url === 'N/A'){ %>
+                                                    -- No Poster -
+                                                 <% } else { %>
+                                                 <img src="<%= el.cover.url.replace('t_thumb', 't_720p') %>" alt="MoviePoster" class="img-fluid" style="border-radius: 5px;" sty>
+                                                 <% } %>
+                                            <% } %>
+                                        <div class="caption-full m-1">
+                                                <form action="/dashboard?_method=PUT" method="POST" class="d-inline float-right mt-1">
+                                                    <input type="text" name="like[image_url]" class="form-control d-none" id="image_url<%= el.id %>" value="<%= el.cover.url.replace('t_thumb', 't_720p') %>"> 
+                                                    <input type="text" name="like[url]" class="form-control d-none" id="url<%= el.id %>" value="<%= el.url %>"> 
+                                                    <input type="text" name="like[name]" class="form-control d-none" id="moviename<%= el.id %>" value="<%= el.name %>">
+                                                    <input type="text" name="like[id]" class="form-control d-none" id="<%= el.id %>" value="<%= el.id %>">
+                                                    <button class="btn btn-primary btn-sm"><i class="far fa-thumbs-up"></i></button>
+                                                    </form>
+                                            <h6 class="textOverflow" style="color: white;"><%= el.name %></h6>
+                                            <% if(el.url) { %>
+                                            <h5><a href="<%= el.url %>" target="_blank" class="btn btn-outline-success btn-sm mx-2" style="float: left; color: rgb(253, 253, 253); background-color: green; font-weight: bolder;">IGDB</a></h5>
+                                            <% } %>
+                                               <form action="/dashboard/posts/createPost" method="POST">
+                                                <input type="text" name="post[url]" class="form-control d-none" id="url<%= el.id %>" value="<%= el.url %>"> 
+                                                <input type="text" name="post[name]" class="form-control d-none" id="<%= el.id %>" value="<%= el.name %>"> 
+                                                <input type="text" name="post[type]" class="form-control d-none" id="type<%= el.id %>" value="<%= type %>"> 
+                                                <button type="submit" class="btn btn-outline-light btn-sm mx-2">Post</button>
+                                                </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <!--  }) %> -->
+                                </div>
+                            </li>
+                        <% } %>
+
+                    <% } else if(type==='manga') { %>
+                        
+    
+                        <li class="col-6 col-lg-2 col-md-3 col-sm-4 py-2 px-1">
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="list-<%= el.title %>" role="tabpanel" aria-labelledby="list-<%= el.title %>-list" style="color: white;">
+                                        <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                                            <% if(el.Poster === 'N/A'){ %>
+                                               -- No Poster -
+                                            <% } else { %>
+                                            <img src="<%= el.image_url %>" alt="MangaPoster" class="img-fluid" style="border-radius: 5px;" sty>
+                                            <% } %>
+                                        <div class="caption-full m-1">
+                                                <form action="/dashboard?_method=PUT" method="POST" class="d-inline float-right mt-1">
+                                                    <input type="text" name="like[image_url]" class="form-control d-none" id="image_url<%= el.mal_id %>" value="<%= el.image_url %>"> 
+                                                    <input type="text" name="like[url]" class="form-control d-none" id="url<%= el.mal_id %>" value="<%= el.url %>"> 
+                                                    <input type="text" name="like[name]" class="form-control d-none" id="moviename<%= el.mal_id %>" value="<%= el.title %>">
+                                                    <input type="text" name="like[id]" class="form-control d-none" id="<%= el.mal_id %>" value="<%= el.mal_id %>">
+                                                    <button class="btn btn-primary btn-sm"><i class="far fa-thumbs-up"></i></button>
+                                                    </form>
+                                            <h6 class="textOverflow"><%= el.title %></h6>
+                                            <h5><a href="<%= el.url %>" target="_blank" class="btn btn-outline-primary btn-sm mx-2" style="float: left; color: rgb(253, 253, 253); background-color: rgb(0, 139, 194); font-weight: bolder;">AniList</a></h5>                                               
+                                            <form action="/dashboard/posts/createPost" method="POST">
+                                                <input type="text" name="post[url]" class="form-control d-none" id="url<%= el.mal_id %>" value="<%= el.url %>"> 
+                                                <input type="text" name="post[name]" class="form-control d-none" id="<%= el.mal_id %>" value="<%= el.title %>"> 
+                                                <input type="text" name="post[type]" class="form-control d-none" id="type<%= el.mal_id %>" value="<%= type %>"> 
+                                                <button type="submit" class="btn btn-outline-light btn-sm mx-2">Post</button>
+                                                </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+    
+                        <% } else if(type==='anime') { %>
+                        
+    
+                        <li class="col-6 col-lg-2 col-md-3 col-sm-4 py-2 px-1">
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="list-<%= el.title %>" role="tabpanel" aria-labelledby="list-<%= el.title %>-list" style="color: white;">
+                                        <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                                            <% if(el.Poster === 'N/A'){ %>
+                                               -- No Poster -
+                                            <% } else { %>
+                                            <img src="<%= el.image_url %>" alt="MoviePoster" class="img-fluid" style="border-radius: 5px;" sty>
+                                            <% } %>
+                                        <div class="caption-full m-1">
+                                                <form action="/dashboard?_method=PUT" method="POST" class="d-inline float-right mt-1">
+                                                    <input type="text" name="like[image_url]" class="form-control d-none" id="image_url<%= el.mal_id %>" value="<%= el.image_url %>"> 
+                                                    <input type="text" name="like[url]" class="form-control d-none" id="url<%= el.mal_id %>" value="<%= el.url %>"> 
+                                                    <input type="text" name="like[name]" class="form-control d-none" id="moviename<%= el.mal_id %>" value="<%= el.title %>">
+                                                    <input type="text" name="like[id]" class="form-control d-none" id="<%= el.mal_id %>" value="<%= el.mal_id %>">
+                                                    <button class="btn btn-primary btn-sm"><i class="far fa-thumbs-up"></i></button>
+                                                    </form>
+                                            <h6 class="textOverflow"><%= el.title %></h6>
+                                            <h5><a href="<%= el.url %>" target="_blank" class="btn btn-outline-primary btn-sm mx-2" style="float: left; color: rgb(253, 253, 253); background-color: rgb(0, 139, 194); font-weight: bolder;">AniList</a></h5>
+                                            <form action="/dashboard/posts/createPost" method="POST">
+                                                <input type="text" name="post[url]" class="form-control d-none" id="url<%= el.mal_id %>" value="<%= el.url %>"> 
+                                                <input type="text" name="post[name]" class="form-control d-none" id="<%= el.mal_id %>" value="<%= el.title %>"> 
+                                                <input type="text" name="post[type]" class="form-control d-none" id="type<%= el.mal_id %>" value="<%= type %>"> 
+                                                <button type="submit" class="btn btn-outline-light btn-sm mx-2">Post</button>
+                                                </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+    
+                        <% } else if(type==='mangaChar') { %>
+                        
+    
+                        <li class="col-6 col-lg-2 col-md-3 col-sm-4 py-2 px-1">
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="list-<%= el.name %>" role="tabpanel" aria-labelledby="list-<%= el.name %>-list" style="color: white;">
+                                        <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                                            <% if(el.image_url === 'N/A'){ %>
+                                               -- No Poster -
+                                            <% } else { %>
+                                            <img src="<%= el.image_url %>" alt="CharPhoto" class="img-fluid" style="border-radius: 5px;" sty>
+                                            <% } %>
+                                        <div class="caption-full m-1">
+                                                <form action="/dashboard?_method=PUT" method="POST" class="d-inline float-right mt-1">
+                                                    <input type="text" name="like[image_url]" class="form-control d-none" id="image_url<%= el.mal_id %>" value="<%= el.image_url %>"> 
+                                                    <input type="text" name="like[url]" class="form-control d-none" id="url<%= el.mal_id %>" value="<%= el.url %>"> 
+                                                    <input type="text" name="like[name]" class="form-control d-none" id="moviename<%= el.mal_id %>" value="<%= el.name %>">
+                                                    <input type="text" name="like[id]" class="form-control d-none" id="<%= el.mal_id %>" value="<%= el.mal_id %>">
+                                                    <button class="btn btn-primary btn-sm"><i class="far fa-thumbs-up"></i></button>
+                                                    </form>
+                                            <h6 class="textOverflow"><%= el.name %></h6>
+                                            <h5><a href="<%= el.url %>" target="_blank" class="btn btn-outline-primary btn-sm mx-2" style="float: left; color: rgb(253, 253, 253); background-color: rgb(0, 139, 194); font-weight: bolder;">AniList</a></h5>
+                                            <form action="/dashboard/posts/createPost" method="POST">
+                                                <input type="text" name="post[url]" class="form-control d-none" id="url<%= el.mal_id %>" value="<%= el.url %>"> 
+                                                <input type="text" name="post[name]" class="form-control d-none" id="<%= el.mal_id %>" value="<%= el.name %>"> 
+                                                <input type="text" name="post[type]" class="form-control d-none" id="type<%= el.mal_id %>" value="<%= type %>"> 
+                                                <button type="submit" class="btn btn-outline-light btn-sm mx-2">Post</button>
+                                                </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+    
+                        <% } else if(type==='superhero') { %>
+                        
+    
+                        <li class="col-6 col-lg-2 col-md-3 col-sm-4 py-2 px-1">
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="list-<%= el.name %>" role="tabpanel" aria-labelledby="list-<%= el.name %>-list" style="color: white;">
+                                        <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                                            <% if(el.image.super_url === 'N/A'){ %>
+                                               -- No Poster -
+                                            <% } else { %>`
+                                            <img src="<%= el.image.super_url %>" alt="CharPhoto" class="img-fluid" style="border-radius: 5px;" sty>
+                                            <% } %>
+                                        <div class="caption-full m-1">
+                                                <form action="/dashboard?_method=PUT" method="POST" class="d-inline float-right mt-1">
+                                                    <input type="text" name="like[image_url]" class="form-control d-none" id="image_url<%= el.id %>" value="<%= el.image.super_url %>"> 
+                                                    <input type="text" name="like[url]" class="form-control d-none" id="url<%= el.id %>" value="<%= el.site_detail_url %>"> 
+                                                    <input type="text" name="like[name]" class="form-control d-none" id="moviename<%= el.id %>" value="<%= el.name %>">
+                                                    <input type="text" name="like[id]" class="form-control d-none" id="<%= el.id %>" value="<%= el.mal_id %>">
+                                                    <button class="btn btn-primary btn-sm"><i class="far fa-thumbs-up"></i></button>
+                                                    </form>
+                                            <h6 class="textOverflow"><%= el.name %></h6>
+                                            <h5><a href="<%= el.site_detail_url %>" target="_blank" class="btn btn-outline-success btn-sm mx-2 p-1" style="float: left; color: rgb(0, 59, 5); background-color: rgb(238, 214, 0); border: 3px solid green; font-weight: bolder;">CVine</a></h5>
+                                            <form action="/dashboard/posts/createPost" method="POST">
+                                                <input type="text" name="post[url]" class="form-control d-none" id="url<%= el.id %>" value="<%= el.site_detail_url %>"> 
+                                                <input type="text" name="post[name]" class="form-control d-none" id="<%= el.id %>" value="<%= el.name %>"> 
+                                                <input type="text" name="post[type]" class="form-control d-none" id="type<%= el.id %>" value="<%= type %>"> 
+                                                <button type="submit" class="btn btn-outline-light btn-sm mx-2">Post</button>
+                                                </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+    
+                        <% } else if(type==='comics') { %>
+                        
+    
+                        <li class="col-6 col-lg-2 col-md-3 col-sm-4 py-2 px-1">
+                                <div class="tab-content" id="nav-tabContent">
+                                    <div class="tab-pane fade show active" id="list-<%= el.name %>" role="tabpanel" aria-labelledby="list-<%= el.name %>-list" style="color: white;">
+                                        <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                                            <% if(el.image.super_url === 'N/A'){ %>
+                                               -- No Poster -
+                                            <% } else { %>
+                                            <img src="<%= el.image.super_url %>" alt="CharPhoto" class="img-fluid" style="border-radius: 5px;" sty>
+                                            <% } %>
+                                        <div class="caption-full m-1">
+                                                <form action="/dashboard?_method=PUT" method="POST" class="d-inline float-right mt-1">
+                                                    <input type="text" name="like[image_url]" class="form-control d-none" id="image_url<%= el.id %>" value="<%= el.image.super_url %>"> 
+                                                    <input type="text" name="like[url]" class="form-control d-none" id="url<%= el.id %>" value="<%= el.site_detail_url %>"> 
+                                                    <input type="text" name="like[name]" class="form-control d-none" id="moviename<%= el.id %>" value="<%= el.name %>">
+                                                    <input type="text" name="like[id]" class="form-control d-none" id="<%= el.id %>" value="<%= el.mal_id %>">
+                                                    <button class="btn btn-primary btn-sm"><i class="far fa-thumbs-up"></i></button>
+                                                    </form>
+                                            <h6 class="textOverflow"><%= el.name %></h6>
+                                            <h5><a href="<%= el.site_detail_url %>" target="_blank" class="btn btn-outline-success btn-sm mx-2 p-1" style="float: left; color: rgb(0, 59, 5); background-color: rgb(238, 214, 0); border: 3px solid green; font-weight: bolder;">CVine</a></h5>
+                                            <form action="/dashboard/posts/createPost" method="POST">
+                                                <input type="text" name="post[url]" class="form-control d-none" id="url<%= el.id %>" value="<%= el.site_detail_url %>"> 
+                                                <input type="text" name="post[name]" class="form-control d-none" id="<%= el.id %>" value="<%= el.name %>"> 
+                                                <input type="text" name="post[type]" class="form-control d-none" id="type<%= el.id %>" value="<%= type %>"> 
+                                                <button type="submit" class="btn btn-outline-light btn-sm mx-2">Post</button>
+                                                </form>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+    
+                        <% } %>
+
+            <% } ) %>
+            <% } %>
+        </ul>
+    </div>
+
+<%= include ../partials/footer %>

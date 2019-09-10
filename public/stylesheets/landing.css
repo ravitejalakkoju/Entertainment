@@ -1,0 +1,375 @@
+body{
+    background-color: black;
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.281), rgba(0, 0, 0, 0.281)) ,url("../collage.jpg");
+    background-attachment: fixed;
+    background-size: cover;  */
+}
+
+footer {
+    height: 10vh;
+    position: relative;
+}
+
+footer h6 {
+    position: absolute;
+    color: #aaa;
+}
+
+
+div.image1 {
+    top: 10%;
+    right: 80%;
+    position:fixed;
+
+    max-width: 120px;
+    max-height: 190px;
+    height: 100%;
+    width: 100%;
+}
+
+div.image2 {
+    top: 10%;
+    left: 80%;
+    position:fixed;
+    
+    max-width: 120px;
+    max-height: 200px;
+    height: 100%;
+    width: 100%;
+}
+
+div.image3 {
+    bottom: 10%;
+    right: 80%;
+    position:fixed;
+    
+    max-width: 120px;
+    max-height: 200px;
+    height: 100%;
+    width: 100%;
+}
+
+div.image4 {
+    bottom: 10%;
+    left: 80%;
+    position:fixed;
+
+    max-width: 120px;
+    max-height: 200px;
+    
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.a{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) ,url("https://mangahelpers.com/forum/media/wsj-cover-issue-9-2016.19683/full?d=1454154995");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+}
+.b{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://vignette.wikia.nocookie.net/dragonball/images/3/3c/Viz_dbs_vol1_cover.jpg/revision/latest?cb=20170116113947");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+}
+.c{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://m.media-amazon.com/images/S/aplus-media/mg/0e7f382e-95dd-4b37-b031-e14cb68a16af.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.d{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://www.rightstufanime.com/images/productImages/9781421539652_manga-death-note-black-2-sample1.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.e{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.pinimg.com/originals/1e/02/d5/1e02d5a06a14e9f186a7c3209ee659ec.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.f{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://images-na.ssl-images-amazon.com/images/I/51G13d3EwBL.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.g{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.pinimg.com/originals/39/f1/c3/39f1c3db6bf5760c9c73e38fbcf47b61.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.h{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://s.yimg.com/ny/api/res/1.2/RC6E8ul7_vqKdPGhr6Zj8Q--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/46aad0c17ffb4781cdacde58366eb4a6");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.i{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://cdn.shopify.com/s/files/1/0630/8509/products/pst0297reddead_large.jpg?v=1533063544");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.j{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://cdn1.medicalnewstoday.com/content/images/articles/319/319614/man-playing-a-video-game.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.k{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://media1.popsugar-assets.com/files/thumbor/6yH-vMqV5-L9qWMoO-XTwfK-YuM/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2013/01/02/0/192/1922398/e975142de54b8ebd_159430266/i/Leonardo-DiCaprio-Golden-Globes-2013.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.l{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://upload.wikimedia.org/wikipedia/commons/1/1b/Scarlett_Johansson_SDCC_2013_by_Gage_Skidmore_1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.m{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.ytimg.com/vi/Q4aviUpm1Oo/maxresdefault.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.n{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://www.foxtel.com.au/content/dam/now/program/foxtel-movies/FM-jurassic-world-fallen-kingdom-portrait.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.o{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://www.marcustheatres.com/media/images/event-large-images/78174-how-to-train-your-dragon-3.jpg?w=140&h=208");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.p{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.pinimg.com/originals/41/2f/96/412f96d1d0a926436fc4cc2c755fac18.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.q{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.ebayimg.com/images/g/yoYAAOSwowBbUKVs/s-l300.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.r{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/479695/479695._SX360_QL80_TTD_.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.s{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://dwgkfo5b3odmw.cloudfront.net/manga/thumbs/shonenjump/dragonballsuper/dragonballsuperchp41/thumb_web.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.t{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://d1m6vmmwsgiy3l.cloudfront.net/media/Releases/34657/34657-1118248.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.u{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://geekologie.com/2013/05/23/video-game-posters-4.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.v{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.ebayimg.com/images/i/232829809770-0-1/s-l1000.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.w{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://cdnb.artstation.com/p/assets/images/images/006/688/073/large/lea-faske-paladins-keyart-poster-updated-print.jpg?1500486274");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.x{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://media.wmagazine.com/photos/5a6a18f56c29fa0b4cf8e5a4/4:3/w_1536/tom-cruise-joins-instagram.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.y{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.pinimg.com/originals/ef/a2/c5/efa2c54dc9bfd34eb01625855a14ef2d.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.z{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://thespreadissue.files.wordpress.com/2016/03/625945-famous-justin-bieber-young.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.a2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45)) ,url("https://i.ebayimg.com/images/g/BQkAAOSwZ1BXdnii/s-l300.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.b2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://m.media-amazon.com/images/M/MV5BMWJkMjJiNzMtNzhmOC00MjQ3LTg5MmEtMTRkMTg1ZjQ2ZmM1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNDkxMzY0Mjk@._V1_.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.c2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://images-na.ssl-images-amazon.com/images/I/41QuZEvMpdL.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.d2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0570_1024x1024.jpeg?v=1485014604");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.e2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://images-na.ssl-images-amazon.com/images/I/611KKYhvtcL._SY679_.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.f2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.pinimg.com/originals/b5/c3/fe/b5c3feb3b56685fed5c2181abc31847e.png");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.g2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i9.mangareader.net/the-promised-neverland/86/the-promised-neverland-10682857.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.h2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Shah_Rukh_Khan_graces_the_launch_of_the_new_Santro.jpg/220px-Shah_Rukh_Khan_graces_the_launch_of_the_new_Santro.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.i2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://1.bp.blogspot.com/-ZC69el9ey1E/UQPfuxcAMCI/AAAAAAABVUc/A96zuOwDCIM/s1600/prabhas_mirchi_movie_new_photos_002.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.j2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://pixel.nymag.com/imgs/daily/vulture/2016/04/14/14-james-cameron.w700.h700.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.k2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://www.shoppoundsave.co.uk/ekmps/shops/ace68d/images/a3-super-mario-bros-satin-poster-wall-art-10366-p.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.l2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://cdn.shopify.com/s/files/1/0942/1228/products/c3gg37Y_f5580742-70a6-44d2-a8f5-606e9370bd84.jpeg?v=1439103020");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.m2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://upload.wikimedia.org/wikipedia/en/a/a4/The_Jungle_Book_%282016%29.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.n2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.pinimg.com/originals/3f/9c/7e/3f9c7e94af76ac1829c6c253b2fe3a95.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.o2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://images-na.ssl-images-amazon.com/images/I/71MZBMmOXtL._SY679_.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.p2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://images-na.ssl-images-amazon.com/images/S/cmx-images-prod/Item/697755/697755._SX360_QL80_TTD_.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.q2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://pixel.nymag.com/imgs/daily/vulture/2018/04/11/100-pages/1964-avengers-4.nocrop.w426.h2147483647.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.r2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://www.picclickimg.com/d/l400/pict/132593471259_/Iron-Man-2-A1-To-A4-Size-Poster.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.s2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.pinimg.com/originals/a9/98/20/a9982065845d045ce6811e0cb4c4ae25.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.t2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.pinimg.com/originals/92/b1/05/92b105d9bfa1fccf6c1a5b04693b34ef.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.u2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://fsmedia.imgix.net/fa/8a/af/2c/1803/470a/8407/c5344175263e/the-futureblue-flash-in-dcs-the-flash-comics.jpeg?auto=format%2Ccompress&dpr=2&w=650");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.v2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzAzOS8zMzAvb3JpZ2luYWwvaXJvbi1tYW4tdGVjaG5vbG9neS0xMDA1MDUtMDIuanBn");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.w2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://www.blog.spoongraphics.co.uk/wp-content/uploads/2011/batman/27.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.x2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://www.mixeddesign.com.au/wp-content/uploads/2018/05/Fortnite-Room-Design-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.y2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://i.redd.it/lvcet0hacsn11.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.z2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://static1.squarespace.com/static/51b3dc8ee4b051b96ceb10de/t/5c48990e7ba7fc521004e933/1548261675747/this-cool-spider-man-into-the-spider-verse-poster-art-from-matt-ferguson-glows-in-the-dark1?format=1500w");
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+} 
+.pickgradient{
+    position:relative;
+    display:inline-block;
+  }
+.pickgradient:after {
+    content:'';
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    display:inline-block;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.5)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.5) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+  
+

@@ -1,0 +1,52 @@
+<%= include ../partials/header %>
+
+<form class="container col-12 col-md-5" action="/dashboard/posts" method="POST">
+  <div class="form-group">
+    <label for="thread" style="color: white;">Enter your POST <span style="color: red;">*</span></label>
+    <textarea type="thread" name="post[thread]" class="form-control" id="thread" placeholder="thread" required></textarea>
+    <% function isEmpty(obj) { for(var key in obj) { if(obj.hasOwnProperty(key)) return false; } return true; } %>
+    <% if(!isEmpty(postDetails)) { %>
+      <div class="form-group">
+          <label for="url" style="color: white;">URL to movie <span style="color: red;">(optional)</span></label>
+          <input type="text" name="post[url]" class="form-control" id="url" value="<%= postDetails.url %>"> 
+          </div>
+          <div class="form-group">
+          <label for="name" style="color: white;">Name <span style="color: red;">*</span> : </label>      
+          <input type="text" name="post[name]" class="form-control" id="name" value="<%= postDetails.name %>"> 
+          </div>
+          <div class="form-group">
+          <label for="type" style="color: white;">Type <span style="color: red;">*</span></label>
+              <select name="post[type]" class="my-1 mr-sm-2 form-control form-control-sm" style="background-color: rgb(255, 225, 191); color: black;" id="inlineFormCustomSelectPref" required>
+                  <option value="<%= postDetails.type %>" selected><%= postDetails.type %></option>
+              </select>
+          </div>
+    <% } else { %>
+      <di v class="form-group">
+          <label for="url" style="color: white;">URL to movie <span style="color: red;">(optional)</span></label>
+          <input type="text" name="post[url]" class="form-control" id="url"> 
+          </di>
+          <div class="form-group">
+          <label for="name" style="color: white;">Name <span style="color: red;">*</span> : </label>      
+          <input type="text" name="post[name]" class="form-control" id="moviename" required> 
+          </div>
+          <div class="form-group">
+          <label for="type" style="color: white;">Type <span style="color: red;">*</span></label>
+            <select name="post[type]" class="my-1 mr-sm-2 form-control form-control-sm" style="background-color: rgb(255, 225, 191); color: black;" id="inlineFormCustomSelectPref" required>
+                <option value="movie">Movie</option>
+                <option value="series">TV-Series</option>
+                <option value="comics">Comics</option>
+                <option value="manga">Manga</option>
+                <option value="anime">Anime</option>
+                <option value="games">VideoGames</option>
+                <option value="superhero">SuperHero</option>
+                <option value="mangaChar">MangaCharacter</option>
+            </select>
+          </div>
+    <% } %>
+  </div>
+  <button type="submit" class="btn" style="background-color: rgb(59, 185, 0); color: white;">Submit</button>
+</form>
+<a href="/dashboard/posts" class="btn btn-light ml-2" style="border-radius: 50px;"><i class="fas fa-arrow-left"></i></a>
+<div style="height: 80px;"></div>
+
+<%= include ../partials/footer %>

@@ -1,0 +1,19 @@
+    </div>
+    <footer class="mt-5">
+        <h6 class="mt-1 float-right d-none d-sm-block">
+            follow me on 
+            <a href="https://www.facebook.com/profile.php?id=100007817806046" style="color: rgb(61, 134, 243); font-size: 1.5rem;" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://twitter.com/raviteja6820" style="color: rgb(58, 160, 201); font-size: 1.5rem;" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.instagram.com/ravi_teja_6820/" style="color: rgb(216, 138, 138); font-size: 1.5rem;" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.reddit.com/search/?q=raviteja6820" style="color: rgb(248, 73, 73); font-size: 1.5rem;" target="_blank"><i class="fab fa-reddit"></i></a>
+            made by L N S S Ravi Teja@Entertainment-Version1</h6>
+        <img class="float-sm-left img-fluid" src="/copyright.png" style=" border-radius: 10%; height: 8vh; margin: 1vh 5px;">
+    </footer>
+    </body>
+    
+    <% if(currentUser) { %>
+    <script>
+        document.getElementById("body").style.backgroundImage = 'linear-gradient(rgba(21, 35, 44, 0.95), rgba(21, 35, 44, 0.95)), url("<%= currentUser.displayPicture %>")';
+    </script>
+    <% } %>
+</html>

@@ -1,0 +1,75 @@
+<%= include ./partials/header %>
+<div class="container text-center">
+    <p class="lead font-weight-bold" style="color: white;">Entertainment</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" style="color: white;">    
+            <div class="card" style="background-color: black;">
+                    <img src="<%= currentUser.displayPicture %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= currentUser.username %></h5>
+                        <p class="card-text"><%= currentUser.quote %></p>
+                        <form method="GET" action="/profile/<%= currentUser._id %>/changePassword" class="p-0 m-0">
+                            <button class="btn btn-outline-light">Change Password</button>
+                        </form>
+                    </div>
+            </div>
+        </div>
+        <div class="col-md-9" style="margin-top: 1rem;">
+            <div class="profile-update-form">
+                <form style="color: white;" action="/profile/<%= currentUser._id %>?_method=PUT" method="POST">
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">UserID :<br>
+                            <small id="emailHelp" class="form-text text-muted" style="color: rgb(255, 255, 255);">Cannot be updated.</small>
+                        </label>
+                        <div class="col-sm-9">
+                        <input type="text" readonly class="form-control" id="staticEmail" style="color: black;" value="<%= currentUser.username %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Quote :</label>
+                        <textarea type="text" name="userd[quote]" class="form-control" id="formGroupExampleInput" placeholder="Example input">Never Give Up</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">User Display Picture :</label>
+                        <input type="text" name="userd[displayPicture]" class="form-control" id="formGroupExampleInput2" placeholder="Link to User Display Picture">
+                    </div>
+                    <button type="submit" class="btn btn-outline-success btn-block col-6 m-auto">Update</button>
+                </form>
+            </div>
+            <div class="row likeview">
+                <div class="col-md-5 float-left">
+                    <div class="tab-content" id="nav-tabContent">
+                    <% currentUser.likes.forEach((el) => { %>
+                        <div class="tab-pane fade show" id="list-<%= el.id %>" role="tabpanel" aria-labelledby="list-<%= el.id %>-list" style="color: white;">
+                            <div class="img-thumbnail" id="indep" style="background-color: black; border: 0; border-radius: 5px;">
+                            <img src="<%= el.image %>" alt="MoviePoster" class="img-fluid" style="border-radius: 5px;" sty>
+                            <div class="caption-full m-1">
+                                <% if(currentUser) { %>
+                                <form action="/profile/<%= currentUser._id %>/deleteLike?_method=PUT" method="POST" class="d-inline float-right mt-1">
+                                <input type="text" name="like[id]" class="form-control d-none" id="<%= el.id %>" value="<%= el.id %>">
+                                <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                </form>
+                                <% } %>
+                                <h4 style="color: white;"><%= el.name %></h4>
+                                <h5><a href="<%= el.url %>" target="_blank" style="color: rgb(231, 231, 3);"><img src="/link4.png" alt="IMDb" class="img-fluid" style="border-radius: 10px; min-width: 30px; max-width: 50px;"></a></h5>
+                            </div>
+                            </div>
+                        </div>
+                     <% }) %>
+                    </div>
+            </div>
+            <div class="col-md-7 float-right pt-2 pt-md-0 maxheight">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <% currentUser.likes.forEach((el) => { %>                    
+                    <a class="list-group-item bg-dark list-group-item-action" id="list-<%= el.id %>-list" data-toggle="list" href="#list-<%= el.id %>" role="tab" aria-controls="home"><%= el.name %><span class="badge badge-primary badge-pill float-right">TotalLikes</span></a>
+                    <% }); %>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= include ./partials/footer %>
