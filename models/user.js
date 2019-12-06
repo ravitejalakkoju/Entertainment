@@ -7,7 +7,6 @@ var UserSchema = new mongoose.Schema({
     quote: String,
     displayPicture: String,
     likes: [{image: String, name: String, url: String, id: String}]
-    
 });
 
 UserSchema.methods.findLike = (id) => {

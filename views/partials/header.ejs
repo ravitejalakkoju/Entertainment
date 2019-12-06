@@ -96,13 +96,9 @@
           </nav>
 
           <% if(error && error.length > 0) { %>
-            <div class="container">
-                <div class="alert alert-danger" role="alert"><%= error %></div> 
-            </div>
+              <div class="alert alert-danger" role="alert" style="z-index: 999;"><%= error %></div> 
             <% } else if(success && success.length > 0) { %>
-            <div class="container">
-              <div class="alert alert-success" role="alert"><%= success %></div> 
-            </div>
+              <div class="alert alert-success" role="alert" style="z-index: 999;"><%= success %></div> 
             <% } %>
             
             <div id="body">
